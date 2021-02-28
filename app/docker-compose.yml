@@ -1,9 +1,7 @@
 version: "3"
 services:
   back:
-    build:
-      context: back
-      dockerfile: Dockerfile
+    image: oliverhu/quotes-back:v1
     volumes:
       - ./back/:/app
     ports:
@@ -13,11 +11,7 @@ services:
 
   data:
     container_name: data
-    build:
-      context: data
-      dockerfile: Dockerfile
-    volumes:
-      - ./data/mydatabase.sql:/tmp/mydatabase.sql
+    image: oliverhu/quotes-data:v1
     ports:
       - "3306:3306"
     environment:
